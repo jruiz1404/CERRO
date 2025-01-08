@@ -26,11 +26,39 @@ sap.ui.define([
 
       if (order != "") {
 
-          // Valido la orden antes???
-          
+        this.getView().setBusy(true);
 
-          let data = order;
-          oRouter.navTo("CbaSalidaList", { data: data });
+          // Valido la orden antes
+          var oKey = this.getView().getModel().createKey("SalidasSet",
+            {
+              Orden: order
+            });
+  
+          this.getView().getModel().read("/" + oKey, {
+            success: jQuery.proxy(function (oData, oResponse) {
+  
+              this.getView().setBusy(false);
+  
+              if (oData.Resultado == 'E') {
+                MessageBox.error(oData.Mensaje);
+              }
+              else {
+  
+                let data = order;
+                oRouter.navTo("CbaSalidaList", { data: data });
+  
+              }
+  
+            }, this),
+  
+            error: jQuery.proxy(function (oError) {
+  
+              this.getView().setBusy(false);
+  
+            }, this),
+  
+          });
+
 
       }
 
