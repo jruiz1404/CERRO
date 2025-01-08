@@ -1,0 +1,16 @@
+<mvc:View controllerName="cerro.dsi.controller.Cordoba"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="Cordoba" title="{i18n>Cordoba}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+
+        <FlexBox id="flexC1" height="100px" alignItems="Start" justifyContent="Center">
+		    <VBox id="Vbox01" alignContent="Center" alignItems = "Center" >
+            	<Button id="btnC1" text="{i18n>Entrante}" press="onCbaEntrante" />
+                <Button id="btnC2" text="{i18n>Saliente}" press="onCbaSaliente" />
+                <Button id="btnC3" text="{i18n>Movimiento}" press="onCbaMovimiento" />
+            </VBox>
+        </FlexBox>
+
+    </Page>
+
+</mvc:View>

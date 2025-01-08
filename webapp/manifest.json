@@ -1,0 +1,180 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "cerro.dsi",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.15.7",
+            "toolsId": "65204c56-8c38-44d8-bafa-be2031decfa7"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZGW_DSI_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.131.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "cerro.dsi.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ],
+            "js": [
+              {
+                "uri": "./lib/zxingjs0153.min.js"
+              }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "cerro.dsi.view",
+                "async": true,
+                "viewPath": "cerro.dsi.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteMain",
+                    "pattern": "",
+                    "target": "TargetMain"
+                    
+                },
+                {
+                    "name": "Cordoba",
+                    "pattern": "Cordoba",
+                    "target": "Cordoba"
+                },
+                {
+                    "name": "CbaEntrante",
+                    "pattern": "CbaEntrante",
+                    "target": "CbaEntrante"
+                },
+                {
+                    "name": "CbaEntVerif",
+                    "pattern": "CbaEntVerif/{data}",
+                    "target": "CbaEntVerif"
+                },
+                {
+                    "name": "CbaMovimiento",
+                    "pattern": "CbaMovimiento",
+                    "target": "CbaMovimiento"
+                },
+                {
+                    "name": "CbaMovUbic",
+                    "pattern": "CbaMovUbic/{data}",
+                    "target": "CbaMovUbic"
+                },
+                {
+                    "name": "CbaMovDest",
+                    "pattern": "CbaMovDest/{data}",
+                    "target": "CbaMovDest"
+                },
+                {
+                    "name": "CbaSalida",
+                    "pattern": "CbaSalida",
+                    "target": "CbaSalida"
+                }
+            ],
+            "targets": {
+                "TargetMain": {
+                    "id": "Main",
+                    "name": "Main"
+                },
+                "Cordoba": {
+                    "id": "Cordoba",
+                    "name": "Cordoba"
+                },
+                "CbaEntrante": {
+                    "id": "CbaEntrante",
+                    "name": "CbaEntrante"
+                },
+                "CbaEntVerif": {
+                    "id": "CbaEntVerif",
+                    "name": "CbaEntVerif"
+                },
+                "CbaMovimiento": {
+                    "id": "CbaMovimiento",
+                    "name": "CbaMovimiento"
+                },
+                "CbaMovUbic": {
+                    "id": "CbaMovUbic",
+                    "name": "CbaMovUbic"
+                },
+                "CbaMovDest": {
+                    "id": "CbaMovDest",
+                    "name": "CbaMovDest"
+                },
+                "CbaSalida": {
+                    "id": "CbaSalida",
+                    "name": "CbaSalida"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "cerro.dsi.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

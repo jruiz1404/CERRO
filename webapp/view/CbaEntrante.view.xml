@@ -1,0 +1,35 @@
+<mvc:View controllerName="cerro.dsi.controller.CbaEntrante"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:ndc="sap.ndc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtm">
+    <Page id="CbaEntrante" title="{i18n>Cordoba} - {i18n>Entrante}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+
+        <FlexBox id="flexCbaEnt" height="100px" alignItems="Start" justifyContent="Center">
+		    <VBox id="Vbox02" alignContent="Center" alignItems = "Center" >
+
+                <HBox id="Hbox01">
+
+                    <Input id="InpCbaEnt" submit="onCbaEntCont" maxLength="30" width="300px" value="{/scannedValue}"/>
+                    <!-- <Button id="btnCEntBarra" press="onScan" icon="sap-icon://bar-code" />  -->
+
+                    <ndc:BarcodeScannerButton
+			            id="sampleBarcodeScannerButton"
+			            scanSuccess="onScanSuccess"
+			            scanFail="onScanError"
+			            inputLiveUpdate="onScanLiveupdate"
+			            dialogTitle="Barcode Scanner"
+		            />
+
+                </HBox>
+            	<Button id="btnCEnt1" text="{i18n>Continuar}" press="onCbaEntCont" /> 
+
+            
+
+            </VBox>
+        </FlexBox>
+
+    </Page>
+    
+</mvc:View>

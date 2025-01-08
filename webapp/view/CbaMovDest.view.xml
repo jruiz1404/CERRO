@@ -1,0 +1,76 @@
+<mvc:View controllerName="cerro.dsi.controller.CbaMovDest"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:ndc="sap.ndc"
+    xmlns="sap.m">
+    <Page id="CbaMovDest" title="{i18n>Cordoba} - {i18n>Entrante} - {i18n>Verificar}" titleAlignment="Center" >
+        <VBox id="_IDGenVBoxDest">
+        <f:SimpleForm id="SimpleFormDisplayDest"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>DatosIng}"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                    <Label id="textPalletDest" text="{i18n>Pallet}: " />
+                    <Text id="CbaMovDestText01"/>
+                    <Label id="textUbica" text="{i18n>Ubicacion}: " />
+                    <Text id="CbaMovDest02"  /> 
+            </f:content>
+		</f:SimpleForm>
+        
+        <f:SimpleForm id="_IDGenSimpleFormDest"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>Destino}"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content> 
+                    <Label id="_IDGenLabelDest"  text="{i18n>Destino}" />
+                    <Input id="cbaEntInputDest"  submit="OnAcceptEnt" />
+					 <ndc:BarcodeScannerButton
+			            id="barCodeDest"
+			            scanSuccess="onScanSuccess"
+			            scanFail="onScanError"
+			            inputLiveUpdate="onScanLiveupdate"
+			            dialogTitle="Barcode Scanner"
+		            />
+            </f:content>
+		</f:SimpleForm>        
+        
+        </VBox>
+
+        <footer  >
+            <OverflowToolbar id="_IDGenOverflowToolbarDest" >
+                <ToolbarSpacer id="_IDGenToolbarSpacerDest"/>
+                <Button id="btnAcceptDest" text="Aceptar" press="OnAcceptEnt" type="Accept" />
+                <Button id="btnCancelDest" text="Cancelar" press="OnCancelEnt" type="Reject" />
+            </OverflowToolbar>
+        </footer> 
+
+    </Page>
+    
+</mvc:View>

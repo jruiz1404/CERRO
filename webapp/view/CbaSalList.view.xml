@@ -1,0 +1,13 @@
+<mvc:View controllerName="cerro.dsi.controller.CbaSalida"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:ndc="sap.ndc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtm">
+    <Page id="CbaSalida" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Posicion} " titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+
+        
+
+    </Page>
+    
+</mvc:View>

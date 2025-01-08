@@ -1,0 +1,10 @@
+<mvc:View controllerName="cerro.dsi.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}" titleAlignment="Center">
+        
+        <FlexBox id="flex01" height="100px" alignItems="Start" justifyContent="Center">
+						<Button id="btn01" text="{i18n>Cordoba}" press="onCordoba" />
+		</FlexBox>
+    </Page>
+</mvc:View>
