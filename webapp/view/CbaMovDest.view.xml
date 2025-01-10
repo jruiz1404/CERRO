@@ -4,7 +4,7 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:ndc="sap.ndc"
     xmlns="sap.m">
-    <Page id="CbaMovDest" title="{i18n>Cordoba} - {i18n>Entrante} - {i18n>Verificar}" titleAlignment="Center" >
+    <Page id="CbaMovDest" title="{i18n>Cordoba} - {i18n>Movimiento} - {i18n>Destino}" titleAlignment="Center" >
         <VBox id="_IDGenVBoxDest">
         <f:SimpleForm id="SimpleFormDisplayDest"
 			editable="false"
@@ -50,7 +50,7 @@
 			singleContainerFullSize="false" >
 			<f:content> 
                     <Label id="_IDGenLabelDest"  text="{i18n>Destino}" />
-                    <Input id="cbaEntInputDest"  submit="OnAcceptEnt" />
+                    <Input id="cbaEntInputDest"  submit="OnAcceptDest" />
 					 <ndc:BarcodeScannerButton
 			            id="barCodeDest"
 			            scanSuccess="onScanSuccess"
@@ -66,8 +66,8 @@
         <footer  >
             <OverflowToolbar id="_IDGenOverflowToolbarDest" >
                 <ToolbarSpacer id="_IDGenToolbarSpacerDest"/>
-                <Button id="btnAcceptDest" text="Aceptar" press="OnAcceptEnt" type="Accept" />
-                <Button id="btnCancelDest" text="Cancelar" press="OnCancelEnt" type="Reject" />
+                <Button id="btnAcceptDest" text="Aceptar" press="OnAcceptDest" type="Accept" />
+                <Button id="btnCancelDest" text="Cancelar" press="OnCancelDest" type="Reject" />
             </OverflowToolbar>
         </footer> 
 

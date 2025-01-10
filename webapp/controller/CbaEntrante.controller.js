@@ -9,10 +9,18 @@ sap.ui.define([
   var oScanResultText;
 
   return Controller.extend("cerro.dsi.controller.CbaEntrante", {
+    
     onInit: function () {
-
+      this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
     },
 
+    handleRouteMatched : function (evt) {
+      // Limpio cada vez que ingreso el valor de orden 
+      var order = this.getView().byId("InpCbaEnt");
+      order.setValue('');
+
+    },
 
     // Navegacion Paginas        
     onNavBack: function () {

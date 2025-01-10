@@ -49,10 +49,10 @@
 			columnsM="1"
 			singleContainerFullSize="false" >
 			<f:content> 
-                    <Label id="_IDGenLabelMov"  text="{i18n>Ubicacion}:" />
-                    <Input id="cbaMovUbicInput"  submit="OnAcceptUbic" />
+                    <Label id="_IDGenLabelEntUbic"  text="{i18n>Ubicacion}:" />
+                    <Input id="cbaEntInput"  submit="OnAcceptEnt" />
 					 <ndc:BarcodeScannerButton
-			            id="barCodeMovUbic"
+			            id="barCodeEntUbic"
 			            scanSuccess="onScanSuccess"
 			            scanFail="onScanError"
 			            inputLiveUpdate="onScanLiveupdate"

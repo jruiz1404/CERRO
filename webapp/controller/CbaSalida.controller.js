@@ -21,15 +21,18 @@ sap.ui.define([
     // //  Funcionalidades
     onCbaSalida: function () {
 
+      var oModel = this.getView().getModel();
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       var order = this.getView().byId("InpCbaSal").getValue();
 
+      oModel.refresh();
+
       if (order != "") {
 
-        this.getView().setBusy(true);
+         this.getView().setBusy(true);
 
           // Valido la orden antes
-          var oKey = this.getView().getModel().createKey("SalidasSet",
+          var oKey = oModel.createKey("SalidasSet",
             {
               Orden: order
             });
@@ -41,12 +44,14 @@ sap.ui.define([
   
               if (oData.Resultado == 'E') {
                 MessageBox.error(oData.Mensaje);
+                this.getView().byId("InpCbaSal").setValueState("Error");
               }
               else {
-  
+                
+                this.getView().byId("InpCbaSal").setValueState("None");
                 let data = order;
-                oRouter.navTo("CbaSalidaList", { data: data });
-  
+                oRouter.navTo("CbaSalList", { data: data });
+                
               }
   
             }, this),

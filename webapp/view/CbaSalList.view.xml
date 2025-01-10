@@ -1,12 +1,50 @@
-<mvc:View controllerName="cerro.dsi.controller.CbaSalida"
+<mvc:View controllerName="cerro.dsi.controller.CbaSalList"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:ndc="sap.ndc"
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
+    xmlns:table="sap.ui.table"
     xmlns:html="http://www.w3.org/1999/xhtm">
-    <Page id="CbaSalida" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Posicion} " titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+    <Page id="CbaSalList" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Seleccione} " 
+        titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+        <content>
+        <table:Table id="idTableSal" rows="{/SalidasPosSet}" rowActionCount="1" cellClick="onPressItem" 
+			selectionMode="None" rowSelectionChange="onPressItem" >
 
-        
+            <table:extension>
+			<Toolbar id="_IDGenToolbar">
+				<Title id="idTitleOrden" level="H3" text="{i18n>Label.Orden}" />
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+			</Toolbar>
+		</table:extension>
+
+            <table:columns>
+                <table:Column id="_IDSalColumnPos">
+					<Label id="_IDGenLabelPos" text="{i18n>Pos}" />
+						<table:template>
+							<Text id="_IDGenPos" text="{Pos}" wrapping="false"/>
+						</table:template>
+				</table:Column>
+
+                <table:Column id="_IDSalColumnMat">
+					<Label id="_IDGenLabelMat" text="{i18n>Material}" />
+						<table:template>
+							<Text id="_IDGenMat" text="{Material}" wrapping="false"/>
+						</table:template>
+				</table:Column>
+
+                <table:Column id="_IDSalColumnCant">
+					<Label id="_IDGenLabelCant" text="{i18n>Cantidad}" />
+						<table:template>
+							<Text id="_IDGenCant" text="{Cantidad}" wrapping="false"/>
+						</table:template>
+				</table:Column>
+
+            </table:columns>
+         
+        </table:Table>
+
+        </content>
 
     </Page>
     

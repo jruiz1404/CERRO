@@ -4,7 +4,7 @@
 	xmlns:f="sap.ui.layout.form"
 	xmlns:ndc="sap.ndc"
     xmlns="sap.m">
-    <Page id="CbaMovUbic" title="{i18n>Cordoba} - {i18n>Entrante} - {i18n>Verificar}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+    <Page id="CbaMovUbic" title="{i18n>Cordoba} - {i18n>Movimiento} - {i18n>Ubicacion}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
         <VBox id="_IDGenVBox">
         <f:SimpleForm id="SimpleFormDisplay354"
 			editable="false"

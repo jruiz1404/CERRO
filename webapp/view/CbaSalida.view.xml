@@ -4,14 +4,14 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
     xmlns:html="http://www.w3.org/1999/xhtm">
-    <Page id="CbaSalList" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Posiciones}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
+    <Page id="CbaSalida" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Posiciones}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
 
         <FlexBox id="flexCbaSal" height="100px" alignItems="Start" justifyContent="Center">
 		    <VBox id="Vbox02Sal" alignContent="Center" alignItems = "Center" >
 
                 <HBox id="Hbox01Sal">
 
-                    <Input id="InpCbaSal" submit="onCbaSalCont" maxLength="30" width="300px" value="{/scannedValue}"/>
+                    <Input id="InpCbaSal" submit="onCbaSalida" maxLength="30" width="300px" value="{/scannedValue}"/>
                     <!-- <Button id="btnCEntBarra" press="onScan" icon="sap-icon://bar-code" />  -->
 
                     <ndc:BarcodeScannerButton
@@ -23,7 +23,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCSal1" text="{i18n>Continuar}" press="onCbaEntCont" /> 
+            	<Button id="btnCSal1" text="{i18n>Continuar}" press="onCbaSalida" /> 
             
 
             </VBox>

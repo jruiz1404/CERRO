@@ -134,6 +134,11 @@
                     "name": "CbaSalida",
                     "pattern": "CbaSalida",
                     "target": "CbaSalida"
+                },
+                {
+                    "name": "CbaSalList",
+                    "pattern": "CbaSalList/{data}",
+                    "target": "CbaSalList"
                 }
             ],
             "targets": {
@@ -168,6 +173,10 @@
                 "CbaSalida": {
                     "id": "CbaSalida",
                     "name": "CbaSalida"
+                },
+                "CbaSalList": {
+                    "id": "CbaSalList",
+                    "name": "CbaSalList"
                 }
             }
         },
