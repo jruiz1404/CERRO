@@ -313,6 +313,7 @@ sap.ui.define([
 
         OnCancelSal: function () {
 
+            var oModel = this.getView().getModel();
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             var oText = "Cancela carga de OT " + orden;
 
@@ -331,7 +332,7 @@ sap.ui.define([
 
                             oModel.remove("/" + oKey, {
                                 success: jQuery.proxy(function (oData, oResponse) {
-
+                                    oRouter.navTo("Cordoba");
 
                                 },),
                                 error: jQuery.proxy(function (oError) {
