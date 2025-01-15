@@ -48,7 +48,7 @@ sap.ui.define([
                 {
                     Orden: oOrden,
                     Posicion: oPos,
-                    Pallet: ""
+                    Pallet: "1"
                 });
 
             this.getView().getModel().read("/" + oKey, {
