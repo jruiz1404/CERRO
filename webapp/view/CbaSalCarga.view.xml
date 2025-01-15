@@ -1,0 +1,83 @@
+<mvc:View controllerName="cerro.dsi.controller.CbaSalCarga"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:ndc="sap.ndc"
+    xmlns="sap.m">
+    <Page id="CbaSalCarga" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Cargar}" titleAlignment="Center" >
+        <VBox id="_IDGenVBoxSal">
+        <f:SimpleForm id="SimpleFormDisplaySal"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>DatosIng}"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                    <Label id="textCargaMat" text="{i18n>Material}" />
+                    <Text id="CbaSalCargaText01" text="{SalidasPosSet>Material}"/>
+					<Label id="textSalCant" text="{i18n>Cantidad}" />
+                    <Text id="CbaSalCargaText02"/>
+					<Label id="textCargaIng" text="{i18n>Ingresado}" />
+					<Text id="CbaSalCargaText03"/>
+					<Label id="textSalRest" text="{i18n>Restante}" />
+                    <Text id="CbaSalCargaText04"/>
+            </f:content>
+		</f:SimpleForm>
+        
+        <f:SimpleForm id="_IDGenSimpleFormCarga"
+			editable="false"
+			layout="ResponsiveGridLayout"
+			title="{i18n>SalidaPallet}"
+			labelSpanXL="2"
+			labelSpanL="2"
+			labelSpanM="2"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="3"
+			emptySpanL="3"
+			emptySpanM="3"
+			emptySpanS="3"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content> 
+                    <Label id="_IDGenLabelCarga"  text="{i18n>IngresaPallet}:" />
+                    <Input id="cbaSalCarga"  submit="OnIngSal" width="290px"/>
+					 <ndc:BarcodeScannerButton
+			            id="barCodeSalCarga"
+			            scanSuccess="onScanSuccess"
+			            scanFail="onScanError"
+			            inputLiveUpdate="onScanLiveupdate"
+			            dialogTitle="Barcode Scanner"
+						width="50px"
+		            />
+            </f:content>
+		</f:SimpleForm>        
+        
+        </VBox>
+
+        <footer  >
+            <OverflowToolbar id="_IDGenOverflowToolbarCarga" >
+                <ToolbarSpacer id="_IDGenToolbarSpacerCarga"/>
+                <Button id="btnPicking" text="Picking" press="OnPicking" type="Accept" />
+                <Button id="btnCambiaCarga" text="Cambiar Posicion" press="OnChangePos" type="Accept" />
+				<Button id="btnSalControl" text="Controlar" press="OnControl" type="Accept" />
+                <Button id="btnCancelCarga" text="Cancelar" press="OnCancelEnt" type="Reject" />
+            </OverflowToolbar>
+        </footer>
+
+    </Page>
+    
+</mvc:View>

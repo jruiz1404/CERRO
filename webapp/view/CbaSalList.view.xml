@@ -7,7 +7,7 @@
     xmlns:html="http://www.w3.org/1999/xhtm">
     <Page id="CbaSalList" title="{i18n>Cordoba} - {i18n>Salida} - {i18n>Seleccione} " 
         titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
-        <content>
+        <!-- <content>
         <table:Table id="idTableSal" rows="{/SalidasPosSet}" rowActionCount="1" cellClick="onPressItem" 
 			selectionMode="None" rowSelectionChange="onPressItem" >
 
@@ -44,7 +44,41 @@
          
         </table:Table>
 
-        </content>
+        </content> -->
+
+		<Table id="idTableSal" 
+			items="{/SalidasPosSet}" 
+			mode="SingleSelectMaster" 
+			itemPress="onPressItem"
+			selectionChange="onPressItem"   >
+		<headerToolbar>
+			<Toolbar id="_IDGenToolbar1">
+				<Title id="idTitleOrden" level="H3" text="{i18n>Label.Orden}" />
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column id="_IDGenColumn">
+				<Text id="_IDGenText1" text="{i18n>labelPos}"/>
+			</Column>
+			<Column id="_IDGenColumn1">
+				<Text id="_IDGenText2" text="{i18n>labelMaterial}"/>
+			</Column>
+			<Column id="_IDGenColumn2">
+				<Text id="_IDGenText3" text="{i18n>labelCantidad}"/>
+			</Column>
+		</columns>
+		<items >
+			<ColumnListItem id="_IDGenColumnListItem" type="Active">
+				<cells>
+					<Text id="_IDGenText4" text="{Posicion}" />
+					<ObjectIdentifier id="_IDGenObjectIdentifier" title="{Material}" text="{Descripcion}"/>
+					<Text id="_IDGenText5" text="{CantidadM2}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+
 
     </Page>
     

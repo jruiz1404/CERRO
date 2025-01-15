@@ -1,0 +1,61 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+	xmlns.t="sap.ui.table"
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core">
+
+	<TableSelectDialog id="idPickingDialog"
+		noDataText="No data"
+		title="Pallet Pickeados"
+		cancel="onPickClose" 
+	>
+
+		
+
+
+	</TableSelectDialog>
+
+
+  <!--   <Dialog id="idPickingDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
+
+        <Table id="idTableListPicking" 
+            items="{/SalidasIngSet}"
+			class="sapUiSmallNegativeMarginBeginEnd" width="auto"
+			mode="SingleSelectLeft"
+			selectionChange="onPickSelect">
+			<columns>
+				<Column id="idPickingCol1">
+					<Text id="idPickingColText1" text="{i18n>Posicion}" textAlign="Center"/>
+				</Column>
+                <Column id="idPickingCol2">
+					<Text id="idPickingColText2" text="{i18n>Pallet}" textAlign="Center"/>
+				</Column>
+                <Column id="idPickingCol3">
+					<Text id="idPickingColText3" text="{i18n>Material}" textAlign="Center"/>
+				</Column>
+				<Column id="idPickingCol4">
+					<Text id="idPickingColText4" text="{i18n>Cantidad}" textAlign="Center"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem id="idPickingColumnList1">
+					<cells>
+						<Label id="idPickingPos" text="{Posicion}" />
+						<Label id="idPickingPallet" text="{Pallet}" />
+						<ObjectIdentifier id="idPickingOject" title="{Material}" text="{Descripcion}"/>
+						<Label id="idPickingCantidad" text="{Quantity}" />
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table> 
+		
+		
+
+
+        <buttons>
+            <Button id="idBtnConfirmar" text="{i18n>action.confirmar}" press="onCtrlfirmSal" visible="false" />
+			<Button id="idBtnCerrar" text="{i18n>action.cerrar}" icon="sap-icon://decline" press="onPickCerrar" type="Reject"/>
+		</buttons>
+    </Dialog> -->
+</core:FragmentDefinition>

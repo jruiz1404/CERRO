@@ -1,0 +1,29 @@
+<core:FragmentDefinition 
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:core="sap.ui.core">
+    <Dialog id="idControlDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
+
+        <Table id="idTableListControl" 
+            items="{/SalidasControlSet}"
+			class="sapUiSmallNegativeMarginBeginEnd" width="auto"
+			mode="SingleSelectLeft">
+            <columns>
+				<Column id="_IDGenColumn4">
+					<Text id="_IDGenText6" text="{i18n>Detalle}" textAlign="Center"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem id="_IDGenColumnListItem1">
+					<cells>
+						<Label id="_IDGenLabel1"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+        <buttons>
+			<Button id="idBtnPickCerrar" text="{i18n>action.cerrar}" icon="sap-icon://decline" press="onCtrlCerrar" type="Reject"/>
+		</buttons>
+    </Dialog>
+</core:FragmentDefinition>

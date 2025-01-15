@@ -139,6 +139,11 @@
                     "name": "CbaSalList",
                     "pattern": "CbaSalList/{data}",
                     "target": "CbaSalList"
+                },
+                {
+                    "name": "CbaSalCarga",
+                    "pattern": "CbaSalCarga/{data}",
+                    "target": "CbaSalCarga"
                 }
             ],
             "targets": {
@@ -177,6 +182,10 @@
                 "CbaSalList": {
                     "id": "CbaSalList",
                     "name": "CbaSalList"
+                },
+                "CbaSalCarga": {
+                    "id": "CbaSalCarga",
+                    "name": "CbaSalCarga"
                 }
             }
         },
