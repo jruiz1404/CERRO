@@ -23,7 +23,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCEnt1" text="{i18n>Continuar}" press="onCbaEntCont" /> 
+            	<Button id="btnCEnt1" text="{i18n>action.Continuar}" press="onCbaEntCont" /> 
 
             
 

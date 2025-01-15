@@ -14,16 +14,16 @@
 			selectionChange="onPickSelect">
 			<columns>
 				<Column id="idPickingCol1">
-					<Text id="idPickingColText1" text="{i18n>Posicion}" textAlign="Center"/>
+					<Text id="idPickingColText1" text="{i18n>labelPos}" textAlign="Center"/>
 				</Column>
                 <Column id="idPickingCol2">
-					<Text id="idPickingColText2" text="{i18n>Pallet}" textAlign="Center"/>
+					<Text id="idPickingColText2" text="{i18n>labelPallet}" textAlign="Center"/>
 				</Column>
                 <Column id="idPickingCol3">
-					<Text id="idPickingColText3" text="{i18n>Material}" textAlign="Center"/>
+					<Text id="idPickingColText3" text="{i18n>labelMaterial}" textAlign="Center"/>
 				</Column>
 				<Column id="idPickingCol4">
-					<Text id="idPickingColText4" text="{i18n>Cantidad}" textAlign="Center"/>
+					<Text id="idPickingColText4" text="{i18n>labelCantidad}" textAlign="Center"/>
 				</Column>
 			</columns>
 			<items>

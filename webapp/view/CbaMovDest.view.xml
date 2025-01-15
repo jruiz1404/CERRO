@@ -66,8 +66,8 @@
         <footer  >
             <OverflowToolbar id="_IDGenOverflowToolbarDest" >
                 <ToolbarSpacer id="_IDGenToolbarSpacerDest"/>
-                <Button id="btnAcceptDest" text="Aceptar" press="OnAcceptDest" type="Accept" />
-                <Button id="btnCancelDest" text="Cancelar" press="OnCancelDest" type="Reject" />
+                <Button id="btnAcceptDest" text="{i18n>action.confirmar}" press="OnAcceptDest" type="Accept" />
+                <Button id="btnCancelDest" text="´{i18n>action.cancelar}" press="OnCancelDest" type="Reject" />
             </OverflowToolbar>
         </footer> 
 

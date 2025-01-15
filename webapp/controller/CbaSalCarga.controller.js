@@ -28,7 +28,7 @@ sap.ui.define([
             posicion = result[1];
 
             var oForm = this.getView().byId("SimpleFormDisplaySal");
-            oForm.setTitle("Orden:" + result[0] + " - Posición:" + result[1]);
+            oForm.setTitle("Orden:" + result[0] + " - Posici\u00f3n:" + result[1]);
 
             this._getResultado(result[0], result[1]);
 

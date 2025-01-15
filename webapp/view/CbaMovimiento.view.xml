@@ -23,7 +23,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCMov1" text="{i18n>Continuar}" press="onCbaMov" /> 
+            	<Button id="btnCMov1" text="{i18n>action.Continuar}" press="onCbaMov" /> 
 
             
 

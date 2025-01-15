@@ -11,7 +11,7 @@
 			mode="None">
             <columns>
 				<Column id="_IDGenColumn4">
-					<Text id="_IDGenText6" text="{i18n>Detalle}" textAlign="Center"/>
+					<Text id="_IDGenText6" text="{i18n>labelDetalle}" textAlign="Center"/>
 				</Column>
 			</columns>
 			<items>

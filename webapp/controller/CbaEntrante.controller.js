@@ -84,7 +84,7 @@ sap.ui.define([
       var order = this.getView().byId("InpCbaEnt");
 
       if (oEvent.getParameter("cancelled")) {
-        MessageToast.show("Scan cancelled", { duration: 1000 });
+        MessageToast.show("Captura Codigo Barras Cancelada", { duration: 1000 });
       } else {
         if (oEvent.getParameter("text")) {
           order.setValue(oEvent.getParameter("text"));

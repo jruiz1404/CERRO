@@ -24,13 +24,13 @@
 			columnsM="1"
 			singleContainerFullSize="false" >
 			<f:content>
-                    <Label id="textCargaMat" text="{i18n>Material}" />
+                    <Label id="textCargaMat" text="{i18n>labelMaterial}" />
                     <Text id="CbaSalCargaText01" text="{SalidasPosSet>Material}"/>
-					<Label id="textSalCant" text="{i18n>Cantidad}" />
+					<Label id="textSalCant" text="{i18n>labelCantidad}" />
                     <Text id="CbaSalCargaText02"/>
-					<Label id="textCargaIng" text="{i18n>Ingresado}" />
+					<Label id="textCargaIng" text="{i18n>labelIngresado}" />
 					<Text id="CbaSalCargaText03"/>
-					<Label id="textSalRest" text="{i18n>Restante}" />
+					<Label id="textSalRest" text="{i18n>labelRestante}" />
                     <Text id="CbaSalCargaText04"/>
             </f:content>
 		</f:SimpleForm>
@@ -71,10 +71,10 @@
         <footer  >
             <OverflowToolbar id="_IDGenOverflowToolbarCarga" >
                 <ToolbarSpacer id="_IDGenToolbarSpacerCarga"/>
-                <Button id="btnPicking" text="Picking" press="OnPicking" type="Accept" />
-                <Button id="btnCambiaCarga" text="Cambiar Posicion" press="OnChangePos" type="Accept" />
-				<Button id="btnSalControl" text="Controlar" press="OnControl" type="Accept" />
-                <Button id="btnCancelCarga" text="Cancelar" press="OnCancelSal" type="Reject" />
+                <Button id="btnPicking" text="{i18n>action.Picking}" press="OnPicking" type="Accept" />
+                <Button id="btnCambiaCarga" text="{i18n>action.cambiar}" press="OnChangePos" type="Accept" />
+				<Button id="btnSalControl" text="{i18n>action.controlar}" press="OnControl" type="Accept" />
+                <Button id="btnCancelCarga" text="{i18n>action.cancelar}" press="OnCancelSal" type="Reject" />
             </OverflowToolbar>
         </footer>
 
