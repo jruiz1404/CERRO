@@ -222,6 +222,7 @@ sap.ui.define([
 
         onPickSelect: function (oEvent) {
 
+            var that = this;
             var oModel = this.getView().getModel();
             var oTable = oEvent.getSource();
             var oSelectedItem = oEvent.getParameter("listItem");
@@ -251,7 +252,7 @@ sap.ui.define([
                                         MessageBox.information("Pallet Eliminado");
                                         oTable.removeSelections();
 
-                                        this._getResultado(orden, posicion);
+                                        that._getResultado(orden, posicion);
 
                                     },),
                                     error: jQuery.proxy(function (oError) {
