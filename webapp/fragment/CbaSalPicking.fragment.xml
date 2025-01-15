@@ -5,24 +5,24 @@
     xmlns:f="sap.ui.layout.form" 
     xmlns:core="sap.ui.core">
 
-	<TableSelectDialog id="idPickingDialog"
+	<!-- <TableSelectDialog id="idPickingDialog"
 		noDataText="No data"
 		title="Pallet Pickeados"
 		cancel="onPickClose" 
 	>
 
-		
 
 
-	</TableSelectDialog>
+
+	</TableSelectDialog> -->
 
 
-  <!--   <Dialog id="idPickingDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
+    <Dialog id="idPickingDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
 
         <Table id="idTableListPicking" 
             items="{/SalidasIngSet}"
 			class="sapUiSmallNegativeMarginBeginEnd" width="auto"
-			mode="SingleSelectLeft"
+			mode="SingleSelectMaster"
 			selectionChange="onPickSelect">
 			<columns>
 				<Column id="idPickingCol1">
@@ -57,5 +57,5 @@
             <Button id="idBtnConfirmar" text="{i18n>action.confirmar}" press="onCtrlfirmSal" visible="false" />
 			<Button id="idBtnCerrar" text="{i18n>action.cerrar}" icon="sap-icon://decline" press="onPickCerrar" type="Reject"/>
 		</buttons>
-    </Dialog> -->
+    </Dialog>
 </core:FragmentDefinition>

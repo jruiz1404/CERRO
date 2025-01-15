@@ -214,23 +214,20 @@ sap.ui.define([
             this.oDialogPicking.open();
 
             var TablePicking = sap.ui.core.Fragment.byId("idPickingDialog", "idTableListPicking");
-            // TablePicking.getBinding("items").filter([new Filter(
-            //     "Orden",
-            //     FilterOperator.EQ,
-            //     orden
-            // )]);            
-            TablePicking.getBinding("rows").filter([new Filter(
-                "Orden",
-                FilterOperator.EQ,
-                orden
-            )]);   
-
+             TablePicking.getBinding("items").filter([new Filter(
+                 "Orden",
+                 FilterOperator.EQ,
+                 orden
+             )]);            
 
         },
 
         onPickSelect: function(oEvent){
 
-            var oSelect;
+            var oTable = oEvent.getSource();
+            var oSelectedItem = oEvent.getParameter("listItem");
+            var bSelected = oEvent.getParameter("selected");
+
 
         },
 

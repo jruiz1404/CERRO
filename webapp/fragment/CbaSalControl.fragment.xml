@@ -6,9 +6,9 @@
     <Dialog id="idControlDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
 
         <Table id="idTableListControl" 
-            items="{/SalidasControlSet}"
+            items="{SalidasControlSet}"
 			class="sapUiSmallNegativeMarginBeginEnd" width="auto"
-			mode="SingleSelectLeft">
+			mode="None">
             <columns>
 				<Column id="_IDGenColumn4">
 					<Text id="_IDGenText6" text="{i18n>Detalle}" textAlign="Center"/>
@@ -17,7 +17,7 @@
 			<items>
 				<ColumnListItem id="_IDGenColumnListItem1">
 					<cells>
-						<Label id="_IDGenLabel1"/>
+						<Label id="_IDGenLabel1" text="{Detalle}"/>
 					</cells>
 				</ColumnListItem>
 			</items>
