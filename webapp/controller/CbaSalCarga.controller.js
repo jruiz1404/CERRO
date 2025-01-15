@@ -47,7 +47,8 @@ sap.ui.define([
             var oKey = this.getView().getModel().createKey("SalidasPosSet",
                 {
                     Orden: oOrden,
-                    Posicion: oPos
+                    Posicion: oPos,
+                    Pallet: ""
                 });
 
             this.getView().getModel().read("/" + oKey, {
