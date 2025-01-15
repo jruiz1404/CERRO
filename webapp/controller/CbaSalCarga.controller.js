@@ -19,7 +19,6 @@ sap.ui.define([
 
         _handleRouteMatched: function (oEvent) {
 
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             let oArguments = oEvent.getParameter("arguments");
             let data = oArguments.data;
 
@@ -85,8 +84,6 @@ sap.ui.define([
             });
 
         },
-
-
 
         // Scan Codigo de barras
         onScanSuccess: function (oEvent) {
@@ -204,7 +201,7 @@ sap.ui.define([
             this.oDialogControl.close();
         },
 
-        OnPicking: function(){
+        OnPicking: function () {
 
             var oView = this.getView();
 
@@ -215,26 +212,141 @@ sap.ui.define([
             this.oDialogPicking.open();
 
             var TablePicking = sap.ui.core.Fragment.byId("idPickingDialog", "idTableListPicking");
-             TablePicking.getBinding("items").filter([new Filter(
-                 "Orden",
-                 FilterOperator.EQ,
-                 orden
-             )]);            
+            TablePicking.getBinding("items").filter([new Filter(
+                "Orden",
+                FilterOperator.EQ,
+                orden
+            )]);
 
         },
 
-        onPickSelect: function(oEvent){
+        onPickSelect: function (oEvent) {
 
+            var oModel = this.getView().getModel();
             var oTable = oEvent.getSource();
             var oSelectedItem = oEvent.getParameter("listItem");
             var bSelected = oEvent.getParameter("selected");
 
+            var oPallet = oSelectedItem.getCells()[1].getText()
+            var oText = "Desea eliminar el pallet " + oPallet;
+
+            if (bSelected == true) {
+                MessageBox.confirm(oText, {
+                    actions: [MessageBox.Action.YES, MessageBox.Action.CLOSE],
+                    emphasizedAction: MessageBox.Action.YES,
+                    onClose: function (sAction) {
+
+                        switch (sAction) {
+                            case MessageBox.Action.YES:
+
+                                var oKey = oModel.createKey("SalidasIngSet",
+                                    {
+                                        Orden: orden,
+                                        Posicion: posicion,
+                                        Pallet: oPallet
+                                    });
+
+                                oModel.remove("/" + oKey, {
+                                    success: jQuery.proxy(function (oData, oResponse) {
+                                        MessageBox.information("Pallet Eliminado");
+                                        oTable.removeSelections();
+
+                                        this._getResultado(orden, posicion);
+
+                                    },),
+                                    error: jQuery.proxy(function (oError) {
+
+                                    }, this)
+                                });
+
+                                break;
+                            case MessageBox.Action.CLOSE:
+                                oTable.removeSelections()
+                                break;
+                        }
+
+                    },
+
+                });
+            }
 
         },
 
-        onPickCerrar: function(){
+        onPickCerrar: function () {
             this.oDialogPicking.close();
+        },
+
+        onCtrlfirmSal: function () {
+
+            var oModel = this.getView().getModel();
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+
+            this.getView().setBusy(true);
+
+            oModel.create("/SalidasSet", {
+                Orden: orden
+            }, {
+                success: function (oData) {
+
+                    this.getView().setBusy(false);
+
+                    if (oData.Resultado == 'S') {
+                        MessageBox.success(oData.Mensaje);
+                        this.onCtrlCerrar();
+                        oRouter.navTo("Cordoba");
+                    } else {
+                        MessageBox.error(oData.Mensaje);
+                    }
+
+                }.bind(this),
+
+                error: function (oError) {
+
+                    this.getView().setBusy(false);
+                    MessageBox.error(oError);
+
+                }.bind(this)
+            });
+
+        },
+
+        OnCancelSal: function () {
+
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oText = "Cancela carga de OT " + orden;
+
+            MessageBox.confirm(oText, {
+                actions: [MessageBox.Action.YES, MessageBox.Action.CLOSE],
+                emphasizedAction: MessageBox.Action.YES,
+                onClose: function (sAction) {
+
+                    switch (sAction) {
+                        case MessageBox.Action.YES:
+
+                            var oKey = oModel.createKey("SalidasSet",
+                                {
+                                    Orden: orden
+                                });
+
+                            oModel.remove("/" + oKey, {
+                                success: jQuery.proxy(function (oData, oResponse) {
+
+
+                                },),
+                                error: jQuery.proxy(function (oError) {
+
+                                }, this)
+                            });
+
+                            break;
+                        case MessageBox.Action.CLOSE:
+
+                    }
+
+                }
+
+            });
         }
 
-    });
+    })
 });

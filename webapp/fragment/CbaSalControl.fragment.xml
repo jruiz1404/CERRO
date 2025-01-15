@@ -23,6 +23,7 @@
 			</items>
 		</Table>
         <buttons>
+			<Button id="idBtnConfirmar" text="{i18n>action.confirmar}" press="onCtrlfirmSal" enabled="true" visible="false" type="Accept" />
 			<Button id="idBtnPickCerrar" text="{i18n>action.cerrar}" icon="sap-icon://decline" press="onCtrlCerrar" type="Reject"/>
 		</buttons>
     </Dialog>
