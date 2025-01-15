@@ -5,18 +5,6 @@
     xmlns:f="sap.ui.layout.form" 
     xmlns:core="sap.ui.core">
 
-	<!-- <TableSelectDialog id="idPickingDialog"
-		noDataText="No data"
-		title="Pallet Pickeados"
-		cancel="onPickClose" 
-	>
-
-
-
-
-	</TableSelectDialog> -->
-
-
     <Dialog id="idPickingDialog" contentWidth="650px" horizontalScrolling="false" verticalScrolling="true">
 
         <Table id="idTableListPicking" 
@@ -49,9 +37,6 @@
 				</ColumnListItem>
 			</items>
 		</Table> 
-		
-		
-
 
         <buttons>
             <Button id="idBtnConfirmar" text="{i18n>action.confirmar}" press="onCtrlfirmSal" visible="false" />
