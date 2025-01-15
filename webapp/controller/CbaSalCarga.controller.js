@@ -251,7 +251,7 @@ sap.ui.define([
                                     success: jQuery.proxy(function (oData, oResponse) {
                                         MessageBox.information("Pallet Eliminado");
                                         oTable.removeSelections();
-
+                                        that.onPickCerrar();
                                         that._getResultado(orden, posicion);
 
                                     },),
