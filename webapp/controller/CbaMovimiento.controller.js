@@ -6,7 +6,16 @@ sap.ui.define([
   "use strict";
 
    return Controller.extend("cerro.dsi.controller.CbaMovimiento", {
+    
     onInit: function () {
+      this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
+    },
+
+    handleRouteMatched : function (evt) {
+      // Limpio cada vez que ingreso el valor de orden 
+      var order = this.getView().byId("InpCbaMov");
+      order.setValue('');
 
     },
 
