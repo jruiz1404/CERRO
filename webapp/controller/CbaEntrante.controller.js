@@ -55,7 +55,8 @@ sap.ui.define([
             }
             else {
 
-              let orden = oData.Orden;
+              //let orden = oData.Orden;
+              let orden = this.getView().byId("InpCbaEnt").getValue();
               let data = orden.concat(",", oData.Ubicacion);
 
               oRouter.navTo("CbaEntVerif", { data: data });
