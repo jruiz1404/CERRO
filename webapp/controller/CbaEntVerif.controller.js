@@ -25,6 +25,8 @@ sap.ui.define([
             let oUbica = this.getView().byId("CbaEntVerif02");
             oUbica.setText(result[1]);
 
+            let ubicacion = this.getView().byId("cbaEntInput");
+            ubicacion.setValue("");
 
         },
 
