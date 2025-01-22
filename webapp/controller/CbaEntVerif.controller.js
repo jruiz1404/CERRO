@@ -27,6 +27,7 @@ sap.ui.define([
 
             let ubicacion = this.getView().byId("cbaEntInput");
             ubicacion.setValue("");
+            ubicacion.setValueState("None");
 
         },
 
@@ -76,9 +77,15 @@ sap.ui.define([
 
                         this.getView().setBusy(false);
 
-                        if (oData.result == 'S') {
-                            MessageBox.success("Ingreso Confirmado");
-                            oRouter.navTo("Cordoba");
+                        if (oData.Result === "S") {
+                            MessageBox.success( oData.Message,
+                                {
+                                    title: "Ejecución Exitosa",
+                                    onClose: function (sButton) {
+                                        oRouter.navTo("Cordoba");
+                                    }
+                                });
+
                         } else {
                             MessageBox.error(oData.Message)
                             ubicacion.setValueState("Error");
