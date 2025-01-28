@@ -26,6 +26,8 @@
 			<f:content>
                     <Label id="textCargaMat" text="{i18n>labelMaterial}" />
                     <Text id="CbaSalCargaText01" text="{SalidasPosSet>Material}"/>
+					<Label id="textCargaUbic" text="{i18n>labelUbicacion}"/>
+					<Text id="CbaSalCargaText05"/>
 					<Label id="textSalCant" text="{i18n>labelCantidad}" />
                     <Text id="CbaSalCargaText02"/>
 					<Label id="textCargaIng" text="{i18n>labelIngresado}" />

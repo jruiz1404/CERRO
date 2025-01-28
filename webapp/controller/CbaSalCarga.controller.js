@@ -38,6 +38,7 @@ sap.ui.define([
         _getResultado: function (oOrden, oPos) {
 
             var oMaterial = this.getView().byId("CbaSalCargaText01"),
+                oUbicacion = this.getView().byId("CbaSalCargaText05"),
                 oCantidad = this.getView().byId("CbaSalCargaText02"),
                 oIngresado = this.getView().byId("CbaSalCargaText03"),
                 oFaltante = this.getView().byId("CbaSalCargaText04");
@@ -67,6 +68,7 @@ sap.ui.define([
                     else {
 
                         oMaterial.setText(oData.Material + ' - ' + oData.Descripcion);
+                        oUbicacion.setText(oData.Ubicacion);
                         oCantidad.setText(oData.CantidadPallet);
                         oIngresado.setText(oData.Ingresado);
                         oFaltante.setText(oData.Faltante);
@@ -292,9 +294,16 @@ sap.ui.define([
                     this.getView().setBusy(false);
 
                     if (oData.Resultado == 'S') {
-                        MessageBox.success(oData.Mensaje);
-                        this.onCtrlCerrar();
-                        oRouter.navTo("Cordoba");
+
+                        MessageBox.success(oData.Mensaje,
+                            {
+                                title: "Resultado Salida",
+                                onClose: function (sButton) {
+                                    this.onCtrlCerrar();
+                                    oRouter.navTo("Cordoba");
+                                }
+                            })
+                        
                     } else {
                         MessageBox.error(oData.Mensaje);
                     }
