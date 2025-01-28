@@ -25,6 +25,9 @@ sap.ui.define([
             let oUbica = this.getView().byId("CbaMovDest02");
             oUbica.setText(result[1]);
 
+            let destino = this.getView().byId("cbaEntInputDest");
+            destino.setValue("");
+
         },
 
 
@@ -83,8 +86,16 @@ sap.ui.define([
                                         that.getView().setBusy(false);
 
                                         if (oData.Resultado == 'S') {
-                                            MessageBox.success(oData.Mensaje);
-                                            oRouter.navTo("Cordoba");
+
+                                            MessageBox.success( oData.Mensaje,
+                                                {
+                                                    title: "Ejecución Exitosa",
+                                                    onClose: function (sButton) {
+                                                        oRouter.navTo("Cordoba");
+                                                    }
+                                                }
+                                            );
+                                                                     
                                         } else {
                                             MessageBox.error(oData.Mensaje);
                                         }
@@ -136,8 +147,6 @@ sap.ui.define([
         onScanLiveupdate: function (oEvent) {
             // User can implement the validation about inputting value
         }
-
-
 
     });
 });

@@ -294,16 +294,9 @@ sap.ui.define([
                     this.getView().setBusy(false);
 
                     if (oData.Resultado == 'S') {
-
-                        MessageBox.success(oData.Mensaje,
-                            {
-                                title: "Resultado Salida",
-                                onClose: function (sButton) {
-                                    this.onCtrlCerrar();
-                                    oRouter.navTo("Cordoba");
-                                }
-                            })
-                        
+                        MessageBox.success(oData.Mensaje);
+                        this.onCtrlCerrar();
+                        oRouter.navTo("Cordoba");
                     } else {
                         MessageBox.error(oData.Mensaje);
                     }

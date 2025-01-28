@@ -20,6 +20,9 @@ sap.ui.define([
             let oPallet = this.getView().byId("CbaMovUbiText01");
             oPallet.setText( data );
 
+            let ubicacion = this.getView().byId("cbaMovUbic");
+            ubicacion.setValue("");
+
         },
 
         onNavBack: function () {
