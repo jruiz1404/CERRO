@@ -57,10 +57,12 @@ sap.ui.define([
             let definida = this.getView().byId("CbaEntVerif02");
             let ubicacion = this.getView().byId("cbaEntInput");
 
-            if (ubicacion.getValue() == "") {
+            let valor = ubicacion.getValue().toUpperCase();
+
+            if (valor == "") {
                 MessageBox.error("Debe ingresar ubicación para confirmar");
                 ubicacion.setRequired(true);
-            } else if (ubicacion.getValue() != definida.getText()) {
+            } else if (valor != definida.getText()) {
                 MessageBox.error("Confirmación de ubicación erronea");
                 ubicacion.setValueState("Error");
             } else {
@@ -69,7 +71,7 @@ sap.ui.define([
 
                 oModel.create("/PalletSet", {
                     Orden: this.getView().byId("CbaEntVerText01").getText(),
-                    Ubicacion: ubicacion.getValue(),
+                    Ubicacion: valor,
                     Result: "",
                     Message: ""
                 }, {

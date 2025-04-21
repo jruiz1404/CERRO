@@ -7,18 +7,41 @@ sap.ui.define([
 
   var prefixId;
   var oScanResultText;
+  var inicial;
 
   return Controller.extend("cerro.dsi.controller.CbaEntrante", {
-    
+
     onInit: function () {
       this._oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       this._oRouter.attachRouteMatched(this.handleRouteMatched, this);
+      inicial = 0;
+
     },
 
-    handleRouteMatched : function (evt) {
+    handleRouteMatched: function (evt) {
       // Limpio cada vez que ingreso el valor de orden 
-      var order = this.getView().byId("InpCbaEnt");
+      var that = this,
+         order = this.getView().byId("InpCbaEnt");
       order.setValue('');
+
+      if ( inicial == 0 && evt.getParameter("name") === "CbaEntrante" ){
+
+        inicial = 1;
+        sap.ndc.BarcodeScanner.scan(
+          function (oResult) {
+            that.onScanSuccess(oResult); // Llamas a tu función
+          },
+          function (oError) {
+            that.onScanError(oError); // Llamas a tu función de error
+          },
+          function (oLiveUpdate) {
+            that.onScanLiveupdate(oLiveUpdate); // Si quieres manejar live updates
+          }
+        );
+  
+      } else {
+        inicial = 0;
+      }
 
     },
 
@@ -27,7 +50,6 @@ sap.ui.define([
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       oRouter.navTo("Cordoba");
     },
-
 
     //  Funcionalidades
     onCbaEntCont: function () {
@@ -84,11 +106,11 @@ sap.ui.define([
 
       var order = this.getView().byId("InpCbaEnt");
 
-      if (oEvent.getParameter("cancelled")) {
+      if (oEvent.cancelled) {
         MessageToast.show("Captura Codigo Barras Cancelada", { duration: 1000 });
       } else {
-        if (oEvent.getParameter("text")) {
-          order.setValue(oEvent.getParameter("text"));
+        if (oEvent.text) {
+          order.setValue(oEvent.text);
           this.onCbaEntCont();
         } else {
           order.setValue('');

@@ -52,13 +52,17 @@ sap.ui.define([
             if (oData.Resultado == 'E') {
               MessageBox.error(oData.Mensaje);
               this.getView().byId("InpCbaSal").setValueState("Error");
-            }
+            } 
             else {
 
-              this.getView().byId("InpCbaSal").setValueState("None");
-              let data = order;
-              oRouter.navTo("CbaSalList", { data: data });
-
+              if (oData.Resultado == 'W') {
+                MessageBox.success(oData.Mensaje);
+              } else {
+                this.getView().byId("InpCbaSal").setValueState("None");
+                let data = order;
+                oRouter.navTo("CbaSalList", { data: data });
+              
+              }
             }
 
           }, this),

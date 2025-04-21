@@ -214,11 +214,10 @@ sap.ui.define([
             this.oDialogPicking.open();
 
             var TablePicking = sap.ui.core.Fragment.byId("idPickingDialog", "idTableListPicking");
-            TablePicking.getBinding("items").filter([new Filter(
-                "Orden",
-                FilterOperator.EQ,
-                orden
-            )]);
+            TablePicking.getBinding("items").filter([
+                new sap.ui.model.Filter("Orden", sap.ui.model.FilterOperator.EQ, orden),
+                new sap.ui.model.Filter("Posicion", sap.ui.model.FilterOperator.EQ, posicion)
+            ]);
 
         },
 
@@ -294,9 +293,17 @@ sap.ui.define([
                     this.getView().setBusy(false);
 
                     if (oData.Resultado == 'S') {
-                        MessageBox.success(oData.Mensaje);
-                        this.onCtrlCerrar();
-                        oRouter.navTo("Cordoba");
+
+                        MessageBox.success( oData.Mensaje,
+                            {
+                                title: "Ejecución Exitosa",
+                                onClose: function (sButton) {
+                                    this.onCtrlCerrar();
+                                    oRouter.navTo("Cordoba");
+                                }
+                            }
+                        );
+                       
                     } else {
                         MessageBox.error(oData.Mensaje);
                     }
