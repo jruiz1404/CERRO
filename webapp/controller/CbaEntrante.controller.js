@@ -57,7 +57,6 @@ sap.ui.define([
 
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
       var order = this.getView().byId("InpCbaEnt").getValue();
-      var data;
 
       if (order != "") {
 
@@ -85,8 +84,6 @@ sap.ui.define([
               oRouter.navTo("CbaEntVerif", { data: data });
 
             }
-
-
 
           }, this),
 

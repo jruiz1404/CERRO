@@ -5,6 +5,7 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("cerro.dsi.controller.CbaMovDest", {
+        
         onInit: function () {
 
             var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
@@ -33,11 +34,12 @@ sap.ui.define([
 
         OnCancelDest: function () {
 
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this),
+                oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
-            MessageBox.confirm("¿Confirma cancelacion de Movimiento?",
+            MessageBox.confirm(oResourceBundle.getText("PregCancelMov"),
                 {
-                    title: "Confirma Cancelacón",
+                    title: oResourceBundle.getText("CancelMov"),
                     onClose: function (sButton) {
                         if (sButton === MessageBox.Action.OK) {
                             oRouter.navTo("CbaMovimiento");
@@ -50,16 +52,17 @@ sap.ui.define([
 
         OnAcceptDest: function () {
 
-            var that = this;
-            var oModel = this.getView().getModel();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var that = this,
+                oModel = this.getView().getModel(),
+                oRouter = sap.ui.core.UIComponent.getRouterFor(this),
+                oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
             let pallet = this.getView().byId("CbaMovDestText01");
             let ubicacion = this.getView().byId("CbaMovDest02");
             let destino = this.getView().byId("cbaEntInputDest");
 
             if (destino.getValue() == "") {
-                MessageBox.error("Debe ingresar destino para confirmar");
+                MessageBox.error( oResourceBundle.getText("MovErrorIngreso"));
                 ubicacion.setRequired(true);
             } else {
                 destino.setValueState("None");

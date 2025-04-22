@@ -280,8 +280,10 @@ sap.ui.define([
 
         onCtrlfirmSal: function () {
 
-            var oModel = this.getView().getModel();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var that = this,
+                oModel = this.getView().getModel()
+                oRouter = sap.ui.core.UIComponent.getRouterFor(this)
+                oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
             this.getView().setBusy(true);
 
@@ -296,10 +298,11 @@ sap.ui.define([
 
                         MessageBox.success( oData.Mensaje,
                             {
-                                title: "Ejecución Exitosa",
+                                title: oResourceBundle.getText("EjecOk"),
                                 onClose: function (sButton) {
-                                    this.onCtrlCerrar();
+                                    that.oDialogControl.close();
                                     oRouter.navTo("Cordoba");
+                                    
                                 }
                             }
                         );

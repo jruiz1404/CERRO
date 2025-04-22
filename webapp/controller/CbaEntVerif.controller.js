@@ -33,11 +33,12 @@ sap.ui.define([
 
         OnCancelEnt: function () {
 
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var oRouter = sap.ui.core.UIComponent.getRouterFor(this),
+                oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
-            MessageBox.confirm("¿Confirma cancelacion de entrada?",
+            MessageBox.confirm(oResourceBundle.getText("PregConfirCancela"),
                 {
-                    title: "Confirma Cancelación",
+                    title: oResourceBundle.getText(oResourceBundle.getText("ConfirCancela")),
                     onClose: function (sButton) {
                         if (sButton === MessageBox.Action.OK) {
                             oRouter.navTo("Cordoba");
@@ -50,9 +51,10 @@ sap.ui.define([
 
         OnAcceptEnt: function () {
 
-            var that = this;
-            var oModel = this.getView().getModel();
-            var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            var that = this,
+                oModel = this.getView().getModel(),
+                oRouter = sap.ui.core.UIComponent.getRouterFor(this),
+                oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
             let definida = this.getView().byId("CbaEntVerif02");
             let ubicacion = this.getView().byId("cbaEntInput");
@@ -60,10 +62,10 @@ sap.ui.define([
             let valor = ubicacion.getValue().toUpperCase();
 
             if (valor == "") {
-                MessageBox.error("Debe ingresar ubicación para confirmar");
+                MessageBox.error(oResourceBundle.getText("ErrorIngreso"));
                 ubicacion.setRequired(true);
             } else if (valor != definida.getText()) {
-                MessageBox.error("Confirmación de ubicación erronea");
+                MessageBox.error(oResourceBundle.getText("ErrorUbicacion"));
                 ubicacion.setValueState("Error");
             } else {
                 ubicacion.setValueState("None");
@@ -82,7 +84,7 @@ sap.ui.define([
                         if (oData.Result === "S") {
                             MessageBox.success( oData.Message,
                                 {
-                                    title: "Ejecución Exitosa",
+                                    title: oResourceBundle.getText("EjecOk"),
                                     onClose: function (sButton) {
                                         oRouter.navTo("Cordoba");
                                     }
