@@ -37,7 +37,7 @@ sap.ui.define([
 
             MessageBox.confirm("¿Confirma cancelacion de entrada?",
                 {
-                    title: "Confirma Cancelacón",
+                    title: "Confirma Cancelación",
                     onClose: function (sButton) {
                         if (sButton === MessageBox.Action.OK) {
                             oRouter.navTo("Cordoba");

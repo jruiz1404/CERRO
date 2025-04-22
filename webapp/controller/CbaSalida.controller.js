@@ -56,7 +56,12 @@ sap.ui.define([
             else {
 
               if (oData.Resultado == 'W') {
-                MessageBox.success(oData.Mensaje);
+                MessageBox.success(oData.Mensaje,{
+                  onClose: function(sAction){
+                    oRouter.navTo("Cordoba");
+                  }
+                });
+
               } else {
                 this.getView().byId("InpCbaSal").setValueState("None");
                 let data = order;

@@ -19,6 +19,7 @@ sap.ui.define([
     },
 
     handleRouteMatched: function (evt) {
+      
       // Limpio cada vez que ingreso el valor de orden 
       var that = this,
          order = this.getView().byId("InpCbaEnt");
@@ -29,13 +30,13 @@ sap.ui.define([
         inicial = 1;
         sap.ndc.BarcodeScanner.scan(
           function (oResult) {
-            that.onScanSuccess(oResult); // Llamas a tu función
+            that.onScanSuccess(oResult); //función al escanear
           },
           function (oError) {
-            that.onScanError(oError); // Llamas a tu función de error
+            that.onScanError(oError); //función de error
           },
           function (oLiveUpdate) {
-            that.onScanLiveupdate(oLiveUpdate); // Si quieres manejar live updates
+            that.onScanLiveupdate(oLiveUpdate); //live updates
           }
         );
   
