@@ -281,8 +281,8 @@ sap.ui.define([
         onCtrlfirmSal: function () {
 
             var that = this,
-                oModel = this.getView().getModel()
-                oRouter = sap.ui.core.UIComponent.getRouterFor(this)
+                oModel = this.getView().getModel(),
+                oRouter = sap.ui.core.UIComponent.getRouterFor(this),
                 oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
 
             this.getView().setBusy(true);
