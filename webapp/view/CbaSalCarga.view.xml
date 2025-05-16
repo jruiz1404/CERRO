@@ -57,7 +57,8 @@
 			<f:content> 
                     <Label id="_IDGenLabelCarga"  text="{i18n>IngresaPallet}:" />
                     <Input id="cbaSalCarga"  submit="OnIngSal" width="290px"/>
-					 <ndc:BarcodeScannerButton
+					<Button id="_IDGenButton4" text="{i18n>action.Continuar}" press="OnIngSal" class="bigButton"/>
+					<ndc:BarcodeScannerButton
 			            id="barCodeSalCarga"
 			            scanSuccess="onScanSuccess"
 			            scanFail="onScanError"

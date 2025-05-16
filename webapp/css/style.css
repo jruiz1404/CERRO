@@ -1,1 +1,17 @@
 /* Enter your custom styles here */
+
+.bigButton .sapMBtnInner {
+    height: 35px !important;        /* Altura del botón */
+    min-width: 200px !important;    /* Ancho mínimo */
+    padding: 5px 20px !important;  /* Espaciado interno (arriba/abajo - derecha/izquierda) */
+    font-size: 20px !important;     /* Tamaño de letra opcional */
+    margin-bottom: 50px !important; /* Ajusta el valor según el espacio deseado */
+  }
+
+  .ButtonMov .sapMBtnInner {
+    height: 30px !important;        /* Altura del botón */
+    min-width: 250px !important;    /* Ancho mínimo */
+    padding: 2px 20px !important;  /* Espaciado interno (arriba/abajo - derecha/izquierda) */
+    font-size: 14px !important;     /* Tamaño de letra opcional */
+    margin-bottom: 30px !important; /* Ajusta el valor según el espacio deseado */
+  }

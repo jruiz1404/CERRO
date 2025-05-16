@@ -6,7 +6,7 @@
     xmlns:html="http://www.w3.org/1999/xhtm">
     <Page id="CbaMovimiento" title="{i18n>Cordoba} - {i18n>Movimiento}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
 
-        <FlexBox id="flexCbaMov" height="100px" alignItems="Start" justifyContent="Center">
+        <FlexBox id="flexCbaMov" alignItems="Start" justifyContent="Center">
 		    <VBox id="MovVbox02" alignContent="Center" alignItems = "Center" >
 
                 <HBox id="MovHbox01">
@@ -23,7 +23,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCMov1" text="{i18n>action.Continuar}" press="onCbaMov" /> 
+            	<Button id="btnCMov1" text="{i18n>action.Continuar}" press="onCbaMov" class="bigButton" /> 
 
             
 

@@ -25,24 +25,24 @@ sap.ui.define([
          order = this.getView().byId("InpCbaEnt");
       order.setValue('');
 
-      if ( inicial == 0 && evt.getParameter("name") === "CbaEntrante" ){
+      // if ( inicial == 0 && evt.getParameter("name") === "CbaEntrante" ){
 
-        inicial = 1;
-        sap.ndc.BarcodeScanner.scan(
-          function (oResult) {
-            that.onScanSuccess(oResult); //función al escanear
-          },
-          function (oError) {
-            that.onScanError(oError); //función de error
-          },
-          function (oLiveUpdate) {
-            that.onScanLiveupdate(oLiveUpdate); //live updates
-          }
-        );
+      //   inicial = 1;
+      //   sap.ndc.BarcodeScanner.scan(
+      //     function (oResult) {
+      //       that.onScanSuccess(oResult); //función al escanear
+      //     },
+      //     function (oError) {
+      //       that.onScanError(oError); //función de error
+      //     },
+      //     function (oLiveUpdate) {
+      //       that.onScanLiveupdate(oLiveUpdate); //live updates
+      //     }
+      //   );
   
-      } else {
-        inicial = 0;
-      }
+      // } else {
+      //   inicial = 0;
+      // }
 
     },
 

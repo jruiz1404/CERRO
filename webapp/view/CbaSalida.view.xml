@@ -23,7 +23,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCSal1" text="{i18n>action.Continuar}" press="onCbaSalida" /> 
+            	<Button id="btnCSal1" text="{i18n>action.Continuar}" press="onCbaSalida" class="bigButton"/> 
             
 
             </VBox>
