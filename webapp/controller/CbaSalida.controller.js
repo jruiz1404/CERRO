@@ -15,12 +15,50 @@ sap.ui.define([
 
       this.getView().byId("InpCbaSal").setValue("");
 
+   const oInput = this.byId("InpCbaSal");
+
+      if (oInput) {
+        oInput.setValue(""); // limpiar campo
+
+        // Aplicar focus inicial
+        setTimeout(() => {
+          const $input = oInput.$().find("input");
+          if ($input.length) {
+            $input[0].focus();
+          }
+        }, 300);
+
+        // Iniciar intervalo para mantener el foco si el campo está vacío
+        this._focusInterval = setInterval(() => {
+          const $input = oInput.$().find("input");
+          if (oInput.getValue() === "" && document.activeElement !== $input[0]) {
+            $input[0].focus();
+          }
+        }, 500);
+
+        // Escuchar cuando el usuario escriba, para dejar de forzar foco
+        oInput.attachLiveChange(() => {
+          if (oInput.getValue()) {
+            clearInterval(this._focusInterval);
+          }
+        });
+      }
+    },
+
+
+    onExit: function () {
+      // Limpiar el intervalo si se sale de la vista
+      if (this._focusInterval) {
+        clearInterval(this._focusInterval);
+        this.getView().byId("InpCbaSal").setValueState("None");
+      }
     },
 
 
     // Navegacion Paginas        
     onNavBack: function () {
       var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+      this.getView().byId("InpCbaSal").setValueState("None");
       oRouter.navTo("Cordoba");
     },
 

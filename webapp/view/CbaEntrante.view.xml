@@ -6,6 +6,7 @@
     xmlns:html="http://www.w3.org/1999/xhtm">
     <Page id="CbaEntrante" title="{i18n>Cordoba} - {i18n>Entrante}" titleAlignment="Center" showNavButton="true" navButtonPress="onNavBack" >
 
+
         <FlexBox id="flexCbaEnt" height="100px" alignItems="Start" justifyContent="Center">
 		    <VBox id="Vbox02" alignContent="Center" alignItems = "Center" >
 
@@ -23,9 +24,7 @@
 		            />
 
                 </HBox>
-            	<Button id="btnCEnt1" text="{i18n>action.Continuar}" press="onCbaEntCont" class="bigButton" /> 
-
-            
+            	<Button id="btnCEnt1" text="{i18n>action.Continuar}" press="onCbaEntCont" class="bigButton"  />           
 
             </VBox>
         </FlexBox>
